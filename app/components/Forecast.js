@@ -24,19 +24,24 @@ class Forecast extends React.Component {
   }
 
   componentDidMount () {
-    var city = queryString.parse(this.props.location.search).city;
-    this.getData(city);
+    this.city = queryString.parse(this.props.location.search).city;
+    this.getData(this.city);
     }
 
   componentWillReceiveProps(nextProps) {
-    var city = queryString.parse(nextProps.location.search).city;
-    this.getData(city);
+    this.city = queryString.parse(nextProps.location.search).city;
+    this.getData(this.city);
   }
 
   getData (city) {
+    this.setState(() => {
+      return{
+        loading: true
+      }
+    })
+
     api.getForcast(city)
       .then((res) => {
-        console.log(res)
         this.setState(() => {
           return {
             load: false,
@@ -47,9 +52,9 @@ class Forecast extends React.Component {
   }
 
   handleClick(city) {
-    var location = queryString.parse(this.props.location.search).city;
+    city.city = this.city;
     this.props.history.push({
-      pathname: '/details/' + location,
+      pathname: '/details/' + this.city,
       state: city
     })
   }
