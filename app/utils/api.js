@@ -3,12 +3,12 @@ import axios from 'axios';
 var _baseURL = 'http://api.openweathermap.org/data/2.5/';
 var _APIKEY = 'b714ec74bbab5650795063cb0fdf5fbe';
 
-function getQueryStringData (city) {
+function getQueryStringData (city, days) {
   return {
     q: city,
     type: 'accurate',
     APPID: _APIKEY,
-    cnt: 5
+    cnt: days
   }
 }
 
@@ -33,8 +33,8 @@ function getCurrentWeather (city) {
     })
 }
 
-function getForcast (city) {
-  var queryStringData = getQueryStringData(city);
+function getForcast (city, days) {
+  var queryStringData = getQueryStringData(city, days);
   var url = prepUrl('forecast/daily', queryStringData)
 
   return axios.get(url)

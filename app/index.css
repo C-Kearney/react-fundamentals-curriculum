@@ -128,3 +128,15 @@ body {
     margin: 0 auto;
     text-align: center;
 }
+
+.length {
+  display: flex;
+  justify-content: center;
+}
+
+.length li {
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  list-style-type: none;
+}
