@@ -55,8 +55,7 @@ class Forecast extends React.Component {
   updateLength(days) {
     this.setState(() => {
       return {
-        length: days,
-        forecastInfo: []
+        length: days
       }
     })
     this.city = queryString.parse(this.props.location.search).city;
