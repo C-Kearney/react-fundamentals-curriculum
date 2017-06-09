@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+//set initial style for the text displayed on the page
 var styles = {
   content: {
     textAlign: 'center',
     fontSize: '35px'
   }
 };
-
+/*the Loading component creates a line of text on the page to be displayed as an
+API is being pinged. The user can supply a text and interval speed to be displayed if they wish for
+something other than the default.*/
 class Loading extends React.Component {
 
   constructor(props) {
@@ -17,7 +19,7 @@ class Loading extends React.Component {
       text: props.text
     };
   }
-
+  //when the component mounts setup a timer to append dots to the text until a set value is reached
   componentDidMount() {
     var stopper = this.props.text + '...';
     this.interval = window.setInterval(() => {
@@ -36,11 +38,11 @@ class Loading extends React.Component {
       }
     }, this.props.speed)
   }
-
+  //clear the interval vaue when the component unmounts from the DOM
   componentWillUnmount() {
     window.clearInterval(this.interval)
   }
-
+//display the entered text
   render() {
     return (
       <p style={styles.content}>
@@ -49,12 +51,12 @@ class Loading extends React.Component {
     )
   }
 }
-
+//set proptypes for the text and speed supplied.
 Loading.propTypes = {
   text: PropTypes.string.isRequired,
   speed: PropTypes.number.isRequired
 };
-
+//set default props should the user not supplly any.
 Loading.defaultProps = {
   text: 'Loading',
   speed: 200

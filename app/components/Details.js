@@ -5,6 +5,9 @@ import utils from '../utils/Conversions';
 var convertTemp = utils.convertTemp;
 var Link = require('react-router-dom').Link;
 
+/*Details renders the High, Low, and humidity. Props are passed from forecast.
+also calls DaytoDay to render the date and weather image. Link creates a button
+that takes the user back to the forecast component.*/
 class Details extends React.Component {
   render() {
     var props = this.props.location.state;

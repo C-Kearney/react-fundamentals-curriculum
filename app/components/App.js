@@ -7,6 +7,9 @@ var Switch = ReactRouter.Switch;
 import Forecast from './Forecast';
 import Details from './Details';
 
+/*App is the central routing file. App sets up the paths to access the homepage,
+the Forecast page, and the detail view. Exact path set on the home component to
+prevent it from rendering on the other component paths.*/
 class App extends React.Component {
   render() {
     return (

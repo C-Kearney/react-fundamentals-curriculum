@@ -1,7 +1,9 @@
 import React from 'react';
 import Location from './Location';
 import Header from './Header.js';
-
+/*creates the homepage with a line of text telling the user to use a city and
+state ot search for the local weather. uses the Location component to create the
+search field.*/
 class Home extends React.Component {
   render() {
     return(
@@ -14,9 +16,7 @@ class Home extends React.Component {
           <h1 className='header'>Enter a City and State</h1>
           <Location
             direction='column'
-            onZipSubmit={function(){}}
-            onZipUpdate={function(){}}
-            zipcode={123} />
+            onZipUpdate={function(){}} />
         </div>
       </div>
     )
