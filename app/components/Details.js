@@ -3,6 +3,7 @@ import Header from './Header';
 import DaytoDay from './DaytoDay';
 import utils from '../utils/Conversions';
 var convertTemp = utils.convertTemp;
+var Link = require('react-router-dom').Link;
 
 class Details extends React.Component {
   render() {
@@ -11,6 +12,11 @@ class Details extends React.Component {
       <div>
         <Header title='Details' />
         <div>
+          <Link className='btn btn-success'
+                to={{pathname: '/forecast',
+                      search:'?city=' + props.city}}>
+                Back to Overview
+          </Link>
           <DaytoDay day={props} />
           <div className='description-container'>
             <p>{props.city}</p>

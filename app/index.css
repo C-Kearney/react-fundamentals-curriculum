@@ -131,11 +131,11 @@ body {
 
 .length {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  font-size: 40px;
 }
 
 .length li {
-  margin: 10px;
   font-weight: bold;
   cursor: pointer;
   list-style-type: none;

@@ -7,16 +7,15 @@ import utils from '../utils/Conversions';
 import DaytoDay from './DaytoDay'
 var getDate = utils.getDate;
 var convertTemp = utils.convertTemp;
-var Link = require('react-router-dom').Link;
 
 function ForecastLength(props) {
-  var length = [5, 7, 10];
+  var days = ['5', '7', '10'];
   return(
     <ul className='length'>
-      {length.map((day) => {
+      {days.map((day) => {
         return (
           <li
-            style={day === props.chosenDay ? { color: '#d0021b'}: null}
+            style={day === props.chosenDay ? { color: 'green'}: {color: 'orangered'}}
             onClick={props.onSelect.bind(null, day)}
             key={day}>
             {day} Days
@@ -49,7 +48,8 @@ class Forecast extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.city = queryString.parse(nextProps.location.search).city;
-    this.getData(this.city, this.state.length);
+    this.length = this.state.length;
+    this.getData(this.city, this.length);
   }
 
   updateLength(days) {
@@ -59,7 +59,16 @@ class Forecast extends React.Component {
       }
     })
     this.city = queryString.parse(this.props.location.search).city;
-    this.getData(this.city, this.state.length);
+
+    api.getForcast(this.city, days)
+      .then((res) => {
+        this.setState(() => {
+          return {
+            load: false,
+            forecastInfo: res
+          }
+        });
+      });
   }
 
   getData (city, length) {

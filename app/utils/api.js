@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 var _baseURL = 'http://api.openweathermap.org/data/2.5/';
-var _APIKEY = 'b714ec74bbab5650795063cb0fdf5fbe';
+var _APIKEY = '61c9fba8c579c55b05af1644f5297a8d';
 
 function getQueryStringData (city, days) {
   return {
