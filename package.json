@@ -4,7 +4,10 @@
   "description": "Building a Weather App",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --open",
+    "build": "set NODE_ENV='production' webpack -p",
+    "firebase-init": "firebase login && firebase init",
+    "deploy": "npm run build && firebase deploy"
   },
   "babel": {
     "presets": [

@@ -24,8 +24,8 @@ class Details extends React.Component {
           <div className='description-container'>
             <p>{props.city}</p>
             <p>{props.weather[0].description}</p>
-            <p>High: {convertTemp(props.temp.max)} degrees</p>
-            <p>Low: {convertTemp(props.temp.min)} degrees</p>
+            <p>High: {convertTemp(props.temp.max)} F</p>
+            <p>Low: {convertTemp(props.temp.min)} F</p>
             <p>Humidity: {props.humidity}%</p>
           </div>
         </div>
